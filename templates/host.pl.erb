@@ -71,7 +71,7 @@ $Conf{SmbClientIncrCmd} = '<%= @smb_client_incr_cmd %>';
 $Conf{SmbClientRestoreCmd} = '<%= @smb_client_restore_cmd %>';
 <% end -%>
 <% if defined?(@tar_share_name) and !@tar_share_name.empty? -%>
-$Conf{TarShareName} = <%= PP.pp(@tar,'').chomp.tr(?", ?') -%>;
+$Conf{TarShareName} = <%= PP.pp(@tar_share_name,'').chomp.tr(?", ?') -%>;
 <% end -%>
 <% if defined?(@tar_client_cmd) and !@tar_client_cmd.empty? -%>
 $Conf{TarClientCmd} = '<%= @tar_client_cmd %>';
