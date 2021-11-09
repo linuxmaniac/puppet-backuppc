@@ -505,7 +505,7 @@ class backuppc::client (
   }
 
   if $ensure == 'present' {
-    @@augeas { "backuppc_host_${config_name}-create":
+    augeas { "backuppc_host_${config_name}-create":
       context => '/files/etc/backuppc/hosts',
       changes => template("${module_name}/host-augeas-create.erb"),
       lens    => 'BackupPCHosts.lns',
@@ -514,7 +514,7 @@ class backuppc::client (
       before  => Augeas["backuppc_host_${config_name}-update"],
       tag     => "backuppc_hosts_${backuppc_hostname}",
     }
-    @@augeas { "backuppc_host_${config_name}-update":
+    augeas { "backuppc_host_${config_name}-update":
       context => '/files/etc/backuppc/hosts',
       changes => template("${module_name}/host-augeas-update.erb"),
       lens    => 'BackupPCHosts.lns',
@@ -527,7 +527,7 @@ class backuppc::client (
   # This can use '/etc/backuppc' due to the wokaround on the client that links
   # config directories for all supported OS. This avoids having a shared param
   # between client and server that must be the same
-  @@file { "/etc/backuppc/pc/${config_name}.pl":
+  file { "/etc/backuppc/pc/${config_name}.pl":
     ensure  => $ensure,
     content => template("${module_name}/host.pl.erb"),
     owner   => 'backuppc',
