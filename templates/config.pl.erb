@@ -98,6 +98,7 @@ $Conf{RsyncdUserName} = '';
 $Conf{RsyncdPasswd} = '';
 $Conf{RsyncdAuthRequired} = 1;
 $Conf{RsyncCsumCacheVerifyProb} = 0.01;
+$Conf{RsyncBackupPCPath} = "/usr/libexec/backuppc-rsync/rsync_bpc";
 $Conf{RsyncArgs} = [
       #
       # Do not edit these!
@@ -288,6 +289,7 @@ $Conf{CgiUserConfigEdit} = {
         RsyncClientCmd            => 0,
         RsyncClientRestoreCmd     => 0,
         RsyncClientPath           => 0,
+        RsyncBackupPCPath         => 0,
         ArchiveDest               => 1,
         ArchiveComp               => 1,
         ArchivePar                => 1,
