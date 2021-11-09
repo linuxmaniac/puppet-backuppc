@@ -451,7 +451,7 @@ class backuppc::client (
       owner   => 'root',
       group   => 'root',
       mode    => '0440',
-      content => "${system_account} ALL=(ALL:ALL) NOEXEC:NOPASSWD: ${sudo_commands_noexec}\n",
+      content => template('backuppc/client/backuppc_noexec.erb'),
     }
 
     user { $system_account:

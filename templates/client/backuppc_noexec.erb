@@ -1,0 +1,4 @@
+<%= @system_account %> ALL=(ALL:ALL) NOEXEC:NOPASSWD: <%= @sudo_commands_noexec %>
+<%- if @hosts_file_user != @system_account -%>
+<%= @hosts_file_user %> ALL=(ALL:ALL) NOEXEC:NOPASSWD: <%= @sudo_commands_noexec %>
+<%- end -%>
